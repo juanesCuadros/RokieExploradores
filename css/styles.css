@@ -1,0 +1,149 @@
+/* Estilo para el panel de misiones */
+#missionsPanel {
+    display: none;
+    position: absolute;
+    top: 10%; /* Cambia en pantallas pequeñas */
+    right: 5%;
+    background: white;
+    padding: 20px;
+    width: 300px;
+    max-width: 100%;
+    border-radius: 8px;
+    border: 2px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    transition: all 0.3s ease-in-out;
+}
+#missionsPanel h3 {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Estilo para la lista de misiones */
+#missionsPanel ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#missionsPanel li {
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+/* Botón de desbloqueo */
+#unlockButton {
+    width: 100%;
+    padding: 10px;
+    background-color: #ccc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: not-allowed;
+    margin-top: 10px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#unlockButton.enabled {
+    background-color: #28a745;
+    cursor: pointer;
+}
+
+#unlockButton:active {
+    transform: scale(0.98);  /* Efecto de pulsación */
+}
+
+#closeMissionsPanel {
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#closeMissionsPanel:hover {
+    background-color: #cc0000;
+}
+
+#closeMissionsPanel:active {
+    transform: scale(0.98);  /* Efecto de pulsación */
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+/* Estilos para el encabezado fijo */
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 9999; /* Alto z-index para superponerse al mapa */
+}
+
+#usernameDisplay {
+    font-size: 18px;
+}
+
+#pointsDisplay {
+    font-size: 18px;
+}
+
+/* Asegurarse de que el contenido del mapa no quede tapado por el encabezado */
+#map {
+    top: 60px; /* Ajustar para que el mapa comience después del header */
+}
+
+/* Medios responsivos para pantallas pequeñas */
+@media (max-width: 768px) {
+    #missionsPanel {
+        width: 100%; /* Ocupa todo el ancho */
+        top: auto;   /* Quitar top */
+        bottom: 0;   /* Fijar en la parte inferior */
+        left: 0;     /* Centrar en la pantalla */
+        right: 0;    /* Centrar en la pantalla */
+        border-radius: 8px 8px 0 0; /* Bordes redondeados solo en la parte superior */
+        padding: 10px;
+    }
+}
+
+/* Medios responsivos para pantallas muy pequeñas (móviles) */
+@media (max-width: 480px) {
+    #missionsPanel {
+        padding: 10px;
+        width: 100%; /* Mantener ancho completo */
+        bottom: 0;   /* Asegurar que esté en la parte inferior */
+        left: 0;     /* Alinear a la izquierda */
+        right: 0;    /* Alinear a la derecha */
+    }
+}
+
+.enabled {
+    background-color: green; /* Cambiar el color de fondo a verde */
+    color: white;            /* Cambiar el color del texto a blanco */
+}
+

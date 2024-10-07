@@ -1,0 +1,14 @@
+.container {
+    height: 10vh; /* Altura completa de la ventana */
+}
+.centered-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+#logoEco{
+    height: 120px; /* Ajustar la altura del logo según sea necesario */
+    margin: 5rem auto; /* Espacio arriba y abajo, y centrar horizontalmente */
+    display: block; /* Asegura que el logo se trate como un bloque */
+}

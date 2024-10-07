@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+    <script>
+        L_NO_TOUCH = false;
+        L_DISABLE_3D = false;
+    </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Añadir Pannellum -->
+    <script src="https://cdn.jsdelivr.net/npm/pannellum/build/pannellum.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum/build/pannellum.css"/>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/styles.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+</head>
+<body>
+
+    <div id="header">
+        <div id="usernameDisplay">Usuario: </div>
+        <div id="pointsDisplay">Puntos: 0</div>
+    </div>
+
+    <!-- Modal para mostrar el texto antes del mapa -->
+    <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="infoModalLabel">Información importante</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h1>Eco Exploradores del Futuro</h1>
+                    <p>Este es nuestro mapa interactivo, donde podrás encontrar lugares naturales para explorar.
+                         Al visitarlos, contribuirás a cuidar nuestro planeta recolectando basura, tomando muestras de agua y 
+                         llevándolas a nuestro laboratorio para realizar estudios.
+                         Con estos datos, podremos idear planes para contrarrestar el cambio climático.
+                        
+                         No olvides que por cada contribución recibirás puntos, los cuales podrás canjear más adelante por premios.</p>
+                    <h3>¡Buena suerte y diviértete con tus amigos explorando el mundo que nos rodea!</h3>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="acceptButton">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="congratsModal" tabindex="-1" aria-labelledby="congratsModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="congratsModalLabel">¡Felicitaciones!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h2>¡Has completado una misión!</h2>
+                    <p>Has ganado 100 puntos por tu contribución. ¡Sigue explorando para ganar más puntos!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="map" style="display: none;"></div>
+
+    <div id="panorama" style="width: 100%; height: 400px; display: none;"></div>
+    
+    <button id="backToMap" style="display: none; position: absolute; top: 10px; left: 700px; z-index: 9999;" class="btn btn-secondary">Volver al Mapa</button>
+
+    <div id="missionsPanel">
+        <h3>Misiones</h3>
+        <ul>
+            <li><input type="checkbox" class="mission-checkbox"> Misión 1: Explorar el área cercana</li>
+            <li><input type="checkbox" class="mission-checkbox"> Misión 2: Tomar fotos de puntos de interés</li>
+            <li><input type="checkbox" class="mission-checkbox"> Misión 3: Recoger muestras</li>
+            <li><input type="checkbox" class="mission-checkbox"> Misión 4: Investigar la flora y fauna local</li>
+        </ul>
+        <button id="unlockButton" disabled>Completar</button>
+        <button id="closeMissionsPanel">Cerrar Misiones</button>
+    </div>
+
+    <!-- Archivo de JavaScript externo -->
+    <script src="/javascrip/mapa.js"></script>
+</body>
+</html>
