@@ -34,48 +34,6 @@ $(document).ready(function () {
                 .bindPopup(node.name + '<br><button class="image-button" data-image="' + node.image + '">Ver Imagen 360</button>');
         });
 
-        // Geolocalización: Verificar si el navegador soporta la API
-        if ("geolocation" in navigator) {
-            var userMarker;
-
-            // Función para actualizar la posición del marcador
-            function updateMarkerPosition(lat, lng) {
-                if (!userMarker) {
-                    // Si el marcador aún no existe, crear uno
-                    userMarker = L.marker([lat, lng]).addTo(map)
-                        .bindPopup("Estás aquí").openPopup();
-                } else {
-                    // Si el marcador ya existe, moverlo a la nueva ubicación
-                    userMarker.setLatLng([lat, lng]);
-                }
-            }
-
-            // Observar la posición del usuario y actualizar el marcador en tiempo real
-            navigator.geolocation.watchPosition(
-                function(position) {
-                    // Obtener la posición del usuario
-                    var userLat = position.coords.latitude;
-                    var userLng = position.coords.longitude;
-
-                    // Centrar el mapa en la nueva ubicación del usuario
-                    map.setView([userLat, userLng], 15);
-
-                    // Actualizar la posición del marcador
-                    updateMarkerPosition(userLat, userLng);
-                },
-                function(error) {
-                    console.error("Error al obtener la ubicación: ", error);
-                },
-                {
-                    enableHighAccuracy: true, // Mayor precisión
-                    timeout: 5000,           // Tiempo máximo de espera
-                    maximumAge: 0            // Desactivar caché
-                }
-            );
-        } else {
-            alert("La geolocalización no está soportada por tu navegador.");
-        }
-
         // Manejar clic en el botón para ver la imagen panorámica
         $(document).on('click', '.image-button', function() {
             var imageUrl = $(this).data('image');
