@@ -8,7 +8,7 @@ $(document).ready(function () {
         
         // Mostrar el mapa
         $('#map').show();
-
+        
         // Inicializar el mapa en una ubicación por defecto (puedes cambiar estas coordenadas si es necesario)
         var map = L.map("map", {
             center: [2.442, -76.606],
@@ -23,9 +23,9 @@ $(document).ready(function () {
 
         // Añadir marcadores predefinidos
         var nodes = [
-            {"name": "El Morro de Tulcán", "location": [2.444712, -76.600737], "image": "../img/morro.jpg", "completed": false},
+            {"name": "The Tulcán Hill", "location": [2.444712, -76.600737], "image": "../img/morro.jpg", "completed": false},
             {"name": "Cerro las Tres Cruces", "location": [2.440586, -76.594717], "image": "../img/TresCruces360.jpg", "completed": false},
-            {"name": "Parque Caldas", "location": [2.441873, -76.606356], "image": "../img/ParqueCaldas360.jpg", "completed": false},
+            {"name": "Caldas Park", "location": [2.441873, -76.606356], "image": "../img/ParqueCaldas360.jpg", "completed": false},
         ];        
 
         nodes.forEach(function(node) {
@@ -97,7 +97,7 @@ $(document).ready(function () {
         $('#unlockButton').on('click', function() {
             // Sumar puntos
             puntos += 100;
-            document.getElementById('pointsDisplay').textContent = 'Puntos: ' + puntos;
+            document.getElementById('pointsDisplay').textContent = 'Points: ' + puntos;
 
             // Habilitar el botón de completar y cambiar su color
             $('#unlockButton').prop('disabled', false).addClass('enabled');
