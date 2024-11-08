@@ -97,6 +97,14 @@ footer {
     padding: 1rem 0;
 }
 
+footer a {
+    color: white;
+    text-decoration: none; /* Esto elimina el subrayado del enlace */
+}
+
+footer a:hover {
+    color: lightgray; /* Cambia el color al pasar el ratón */
+}
 
 #learn {
     padding: 4rem 2rem;
